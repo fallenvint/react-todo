@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-function TodoList(props) {
+const TodoList = ({items, onToggle}) => {
     return (
         <div className='todolist-main'>
-            <ul id='todolist' className='list-items'>
-                {props.items.map((elem, index) => {
+            <ul className='list-items'>
+                {items.map((elem, index) => {
                     return (
                         <TodoItem
                             elem={elem}
                             index={index}
                             key={elem.id}
-                            onClick={props.onToggle}
-                    />
-                    )
+                            onClick={onToggle}
+                        />
+                    );
                 })}
             </ul>
         </div>
