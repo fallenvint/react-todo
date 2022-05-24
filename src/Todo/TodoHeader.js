@@ -1,5 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import {faWindowClose} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
@@ -49,14 +50,13 @@ const TodoHeader = ({items, date, onCreate}) => {
         }
     }, [items, onCreate, inputValue]);
 
-    let classNames = require('classnames');
-    let headerClass = classNames({
-        'todolist-header flex': true,
-        'show_add-input': isDisplay
-    });
-
     return (
-        <div className={headerClass}>
+        <div className={
+            cn({
+                'todolist-header flex': true,
+                'show_add-input': isDisplay
+            })
+        }>
             <div className="today">
                 <div className="today_date">{`${date.monthName()} ${date.day}, ${date.year}`}</div>
                 <div className="today_week">{date.weekday()}</div>

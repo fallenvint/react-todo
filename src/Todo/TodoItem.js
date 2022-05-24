@@ -1,6 +1,7 @@
 import React, {useCallback, useContext} from 'react';
 import PropTypes from 'prop-types';
 import Context from '../context';
+import cn from 'classnames';
 import {faCheck, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
@@ -9,14 +10,14 @@ const TodoItem = ({elem, onClick}) => {
     const handleCheck = useCallback(() => onClick(elem.id), [onClick, elem.id]);
     const handleRemove = useCallback(() => removeTodo(elem.id), [removeTodo, elem.id]);
 
-    let classNames = require('classnames');
-    let listClass = classNames({
-        'list-item flex': true,
-        checked: elem.status
-    });
 
     return (
-        <li className={listClass}>
+        <li className={
+            cn({
+                'list-item flex': true,
+                'checked': elem.status
+            })
+        }>
             <span className='task-check' onClick={handleCheck}>
                 <FontAwesomeIcon icon={faCheck}/>
             </span>
