@@ -52,8 +52,7 @@ const TodoHeader = ({items, date, onCreate}) => {
 
     return (
         <div className={
-            cn({
-                'todolist-header flex': true,
+            cn('todolist-header flex', {
                 'show_add-input': isDisplay
             })
         }>

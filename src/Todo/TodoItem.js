@@ -13,8 +13,7 @@ const TodoItem = ({elem, onClick}) => {
 
     return (
         <li className={
-            cn({
-                'list-item flex': true,
+            cn('list-item flex', {
                 'checked': elem.status
             })
         }>
